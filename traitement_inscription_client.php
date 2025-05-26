@@ -19,13 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['message_client'] = "Inscription client réussie !";
         $_SESSION['type_client'] = "success";
         // Optionnel : rediriger vers une page de connexion ou de bienvenue
-        header("Location: connexion.php");
+        header("Location: connexion.html");
         exit();
     } catch (PDOException $e) {
         $_SESSION['message_client'] = "Erreur : " . $e->getMessage();
         $_SESSION['type_client'] = "error";
     }
 
-    header("Location: inscription.php");
+    header("Location: inscription.html");
     exit();
 }

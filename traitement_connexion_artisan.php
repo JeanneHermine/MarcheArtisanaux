@@ -14,11 +14,11 @@ try {
         exit();
     } else {
         $_SESSION['error_artisan'] = "Email ou mot de passe incorrect (artisan)";
-        header("Location: connexion.php");
+        header("Location: connexion.html");
         exit();
     }
 } catch (PDOException $e) {
     $_SESSION['error_artisan'] = "Erreur : " . $e->getMessage();
-    header("Location: connexion.php");
+    header("Location: connexion.html");
     exit();
 }

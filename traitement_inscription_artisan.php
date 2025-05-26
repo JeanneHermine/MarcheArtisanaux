@@ -16,13 +16,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['message_artisan'] = "Inscription réussie !";
         $_SESSION['type_artisan'] = "success";
         // Optionnel : rediriger vers une page de connexion ou de bienvenue
-        header("Location: connexion.php");
+        header("Location: connexion.html");
         exit();
     } catch (PDOException $e) {
         $_SESSION['message_artisan'] = "Erreur : " . $e->getMessage();
         $_SESSION['type_artisan'] = "error";
     }
 
-    header("Location: inscription.php");
+    header("Location: inscription.html");
     exit();
 }

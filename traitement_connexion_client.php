@@ -14,11 +14,11 @@ try {
         exit();
     } else {
         $_SESSION['error_client'] = "Email ou mot de passe incorrect (client)";
-        header("Location: connexion.php");
+        header("Location: connexion.htlm");
         exit();
     }
 } catch (PDOException $e) {
     $_SESSION['error_client'] = "Erreur : " . $e->getMessage();
-    header("Location: connexion.php");
+    header("Location: connexion.html");
     exit();
 }

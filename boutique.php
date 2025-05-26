@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'config.php'; 
 
 try {
@@ -44,6 +45,15 @@ try {
 </head>
 <body>
     <h2>🛍️ Boutique BEN'ART</h2>
+    <!-- boutons pour se connecter ou s'inscrire et profil si la personne est connectée -->
+    <?php if (isset($_SESSION['email'])): ?>
+        <a href="profil.php">Profil</a>
+    <?php else: ?>
+        <p>
+            <a href="connexion.php">Se connecter</a> |
+            <a href="inscription.php">S'inscrire</a>
+        </p>
+    <?php endif; ?>
 
     <?php foreach ($catalogues as $cat): ?>
         <div class="catalogue">
