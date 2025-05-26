@@ -1,0 +1,99 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .hero {
+    position: relative;
+    background-image: url('11.jpg'); /* ton image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(182, 123, 15);
+    overflow: hidden;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+  }
+  
+  .typewriter {
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: 2px;
+        animation: typing 4s steps(30, end);
+        font-size: 3rem;
+      }
+      
+  
+  p {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeIn 2s ease 4s forwards;
+  }
+  
+  /* Bouton stylé */
+  .btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    color: white;
+    border: 2px solid white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background 0.4s, color 0.4s;
+    opacity: 0;
+    animation: fadeIn 2s ease 5.5s forwards;
+  }
+  
+  .btn:hover {
+    background-color: white;
+    color: #000;
+  }
+  
+  /* Audio */
+  .audio {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 10;
+  }
+  
+  /* Animations */
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: white; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
