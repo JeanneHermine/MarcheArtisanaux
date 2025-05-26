@@ -1,0 +1,123 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('11.jpg'); /* Remplacez par le chemin de votre image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 200%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.form-section {
+    width: 50%;
+    padding: 40px;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    margin: 0 10px;
+    padding: 12px 24px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tabs button:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.tabs button.active-tab {
+    background-color: #007BFF;
+    color: white;
+}
+
+form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-family: 'Roboto', sans-serif;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.error {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ff4444;
+}
+
+.success {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #00C851;
+}
