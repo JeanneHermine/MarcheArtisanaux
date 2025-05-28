@@ -61,20 +61,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <form method="POST">
     <label>Nom :</label><br>
-    <input type="text" name="nom" value="<?= htmlspecialchars($user['nom']) ?>" required><br><br>
+    <input type="text" name="nom" value="<?= htmlspecialchars($user['nom'] ?? '') ?>" required><br><br>
 
     <label>Prénom :</label><br>
-    <input type="text" name="prenom" value="<?= htmlspecialchars($user['prenom']) ?>" required><br><br>
+    <input type="text" name="prenom" value="<?= htmlspecialchars($user['prenom'] ?? '') ?>" required><br><br>
 
     <label>Email :</label><br>
-    <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required><br><br>
+    <input type="email" name="email" value="<?= htmlspecialchars($user['email'] ?? '') ?>" required><br><br>
+
+    <?php if (!$isClient): ?>
+        <label>Ville :</label><br>
+        <input type="text" name="ville" value="<?= htmlspecialchars($user['ville'] ?? '') ?>"><br><br>
+
+        <label>Téléphone :</label><br>
+        <input type="text" name="telephone" value="<?= htmlspecialchars($user['numero'] ?? '' ) ?>"><br><br>
+    <?php endif; ?>
 
     <?php if ($isClient): ?>
         <label>Adresse :</label><br>
-        <input type="text" name="adresse" value="<?= htmlspecialchars($user['adresse']) ?>"><br><br>
+        <input type="text" name="adresse" value="<?= htmlspecialchars($user['adresse'] ?? '') ?>"><br><br>
 
         <label>Téléphone :</label><br>
-        <input type="text" name="telephone" value="<?= htmlspecialchars($user['telephone']) ?>"><br><br>
+        <input type="text" name="telephone" value="<?= htmlspecialchars($user['telephone'] ?? '') ?>"><br><br>
     <?php endif; ?>
 
     <input type="submit" value="Mettre à jour">
