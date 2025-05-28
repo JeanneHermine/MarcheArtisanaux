@@ -1,13 +1,13 @@
 <?php
 session_start();
-require_once 'config.php';
-require_once 'vendor/autoload.php'; // PHPMailer
+require_once './config.php';
+require_once 'vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 if (!isset($_SESSION['client_id']) || empty($_POST['panier'])) {
-    header("Location: boutique.php");
+    header("Location: ../front/templates/boutique.php");
     exit();
 }
 
@@ -175,7 +175,7 @@ try {
 
     envoyerMail($client['email'], $client['nom'], 'Confirmation de votre commande', $emailClient);
     envoyerMail($artisan['email'], $artisan['nom'], 'Nouvelle commande reçue', $emailArtisan);
-    header("Location: messagerie.php?id_conversation=" . $id_conversation);
+    header("Location: ../front/templates/messagerie.php?id_conversation=" . $id_conversation);
     exit();
 
 } catch (PDOException $e) {

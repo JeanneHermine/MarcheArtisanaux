@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once './config.php';
 
 if (!isset($_POST['id_conversation'], $_POST['expediteur'], $_POST['contenu'])) {
-    header('Location: index.php');
+    header('Location: ../front/templates/boutique.php');
     exit;
 }
 
@@ -12,7 +12,7 @@ $expediteur = $_POST['expediteur'];
 $contenu = trim($_POST['contenu']);
 
 if ($contenu === '') {
-    header("Location: messagerie.php?id_conversation=$id_conversation");
+    header("Location: ../front/templates/messagerie.php?id_conversation=$id_conversation");
     exit;
 }
 
@@ -23,7 +23,7 @@ try {
     $stmt = $pdo->prepare("INSERT INTO messages (id_conversation, expediteur, contenu, date_envoi) VALUES (?, ?, ?, NOW())");
     $stmt->execute([$id_conversation, $expediteur, $contenu]);
 
-    header("Location: messagerie.php?id_conversation=$id_conversation");
+    header("Location: ../front/templates/messagerie.php?id_conversation=$id_conversation");
     exit;
 
 } catch (PDOException $e) {

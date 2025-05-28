@@ -5,6 +5,6 @@ session_start();
 session_unset();
 session_destroy();
 // Rediriger vers la page d'accueil ou de connexion
-header("Location: boutique.php");
+header("Location: ../front/templates/boutique.php");
 exit();
 ?>

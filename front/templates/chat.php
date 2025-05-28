@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once '../../back/config.php';
 
 $utilisateur = null;
 $id_utilisateur = null;
@@ -63,12 +63,12 @@ try {
     <?php else: ?>
         <?php foreach ($conversations as $conv): ?>
             <div class="chat-item">
-                <a href="messagerie.php?id_conversation=<?= $conv['id_conversation'] ?>">
+                <a href="./messagerie.php?id_conversation=<?= $conv['id_conversation'] ?>">
                     Conversation avec <?= htmlspecialchars($conv['nom_autre']) ?>
                 </a>
             </div>
             <?php if ($utilisateur === 'artisan'): ?>
-              <form action="supprimer_conversation.php" method="POST" onsubmit="return confirm('Supprimer cette conversation ?');">
+              <form action="../../back/supprimer_conversation.php" method="POST" onsubmit="return confirm('Supprimer cette conversation ?');">
                   <input type="hidden" name="id_conversation" value="<?= $conv['id_conversation'] ?>">
                   <button type="submit" style="background-color: red; color: white; border: none; padding: 5px 10px; margin-bottom: 15px;">Supprimer la conversation</button>
               </form>

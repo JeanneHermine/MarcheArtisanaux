@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Connexion Client</title>
-  <link rel="stylesheet" href="InscripConnexClient.css" />
+  <link rel="stylesheet" href="../assets/css/InscripConnexClient.css" />
 </head>
 <body>
 
@@ -13,7 +13,7 @@
   <?php if (isset($_SESSION['error_client'])): ?>
     <p class="error"><?= $_SESSION['error_client']; unset($_SESSION['error_client']); ?></p>
   <?php endif; ?>
-  <form method="POST" action="traitement_connexion_client.php">
+  <form method="POST" action="../../back/traitement_connexion_client.php">
     <label>Email :</label>
     <input type="email" name="email" required>
     <label>Mot de passe :</label>

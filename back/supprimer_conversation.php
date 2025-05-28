@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once './config.php';
 
 if (!isset($_SESSION['artisan_id']) || !isset($_POST['id_conversation'])) {
     die("Accès refusé.");
@@ -20,7 +20,7 @@ try {
     $stmt = $pdo->prepare("DELETE FROM conversations WHERE id_conversation = ?");
     $stmt->execute([$id_conversation]);
 
-    header("Location: chat.php");
+    header("Location: ../front/templates/chat.php");
     exit;
 
 } catch (PDOException $e) {

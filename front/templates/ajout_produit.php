@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once '../../back/config.php';
 
 if (!isset($_SESSION['artisan_id']) || !isset($_SESSION['email'])) {
-    header("Location: connexion.php");
+    header("Location: ./connexion_artisan.php");
     exit();
 }
 
@@ -138,7 +138,7 @@ try {
         <td><?= $prod['statut'] ?></td>
         <td><img src="<?= htmlspecialchars($prod['photo_url']) ?>" alt="Photo" width="60"></td>
         <td>
-          <a href="modifier_produit.php?id=<?= $prod['id_produit'] ?>">Modifier</a> |
+          <a href="./modifier_produit.php?id=<?= $prod['id_produit'] ?>">Modifier</a> |
           <a href="?delete=<?= $prod['id_produit'] ?>" onclick="return confirm('Supprimer ce produit ?');">Supprimer</a>
         </td>
       </tr>
@@ -146,6 +146,6 @@ try {
     </table>
   <?php endif; ?>
 
-  <br><a href="catalogue_art.php">← Retour à mes catalogues</a>
+  <br><a href="./catalogue_art.php">← Retour à mes catalogues</a>
 </body>
 </html>

@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once '../../back/config.php';
 
 if (!isset($_SESSION['artisan_id']) || !isset($_GET['id'])) {
-    header("Location: connexion.php");
+    header("Location: ./connexion_artisan.php");
     exit();
 }
 
@@ -44,9 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     echo "<p style='color:green;'>Produit mis à jour avec succès !</p>";
 
-    // Rafraîchir les données
-    header("Location: gerer_produits.php");
-    exit();
 }
 ?>
 <!DOCTYPE html>
@@ -84,6 +81,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="submit" value="Enregistrer les modifications">
   </form>
 
-  <br><a href="ajout_produit.php">← Retour à mes produits</a>
+  <br><a href="./ajout_produit.php">← Retour à mes produits</a>
 </body>
 </html>

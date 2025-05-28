@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once '../../back/config.php';
 
 if (!isset($_GET['id_conversation'])) {
     echo "Conversation introuvable.";
@@ -116,7 +116,7 @@ try {
         <?php endforeach; ?>
     </div>
 
-    <form class="form-message" action="envoyer_message.php" method="POST">
+    <form class="form-message" action="../../back/envoyer_message.php" method="POST">
         <input type="hidden" name="id_conversation" value="<?= $id_conversation ?>">
         <input type="hidden" name="expediteur" value="<?= $utilisateur ?>">
         <textarea name="contenu" placeholder="Votre message..." required></textarea>

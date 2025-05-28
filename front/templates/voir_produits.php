@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php'; 
+require_once '../../back/config.php'; 
 
 if (!isset($_GET['id_catalogue'])) {
     echo "Catalogue non spécifié.";
@@ -148,7 +148,7 @@ aside#panier.ouvert {
     <h3>Mon panier</h3>
     <div id="liste-panier"></div>
     <div id="total"></div>
-    <form method="POST" action="validation_panier.php" id="form-commande">
+    <form method="POST" action="../../back/validation_panier.php" id="form-commande">
     <input type="hidden" name="panier" id="input-panier" value=''>
     <button type="submit" id="valider-commande" style="display: none;">Valider la commande</button>
     </form>
@@ -189,7 +189,7 @@ aside#panier.ouvert {
        const container = document.getElementById('liste-panier');
        const totalContainer = document.getElementById('total');
        const countBadge = document.getElementById('panier-count');
-       const validerCommandeButton = document.getElementById('valider-commande'); // Bouton à gérer
+       const validerCommandeButton = document.getElementById('valider-commande'); 
 
        container.innerHTML = '';
        let total = 0;

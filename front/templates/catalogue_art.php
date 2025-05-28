@@ -1,10 +1,10 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once '../../back/config.php';
 
 if (!isset($_SESSION['artisan_id'])) {
     $_SESSION['error_message'] = "Veuillez vous connecter pour accéder à cette page.";
-    header("Location: connexion.php");
+    header("Location: ./connexion_artisan.php");
     exit();
 }
 
@@ -20,7 +20,7 @@ try {
         $stmt = $pdo->prepare("INSERT INTO catalogues (titre, description, photo_url, id_artisan, date_creation) VALUES (?, ?, ?, ?, NOW())");
         $stmt->execute([$titre, $description, $photo_url, $artisan_id]);
 
-        header("Location: catalogue_art.php");
+        header("Location: ./catalogue_art.php");
         exit();
     }
 
@@ -31,7 +31,7 @@ try {
         $stmt = $pdo->prepare("DELETE FROM catalogues WHERE id_catalogue = ? AND id_artisan = ?");
         $stmt->execute([$id_catalogue, $artisan_id]);
 
-        header("Location: catalogue_art.php");
+        header("Location: ./catalogue_art.php");
         exit();
     }
 
@@ -54,11 +54,11 @@ try {
 <body>
   <h2>Bienvenue, <?php echo htmlspecialchars($_SESSION['email']); ?></h2>
   <!-- accueil -->
-  <p><a href="boutique.php">Accueil</a></p>
-  <p><a href="deconnexion.php">Déconnexion</a></p>
+  <p><a href="./boutique.php">Accueil</a></p>
+  <p><a href="../../back/deconnexion.php">Déconnexion</a></p>
   <!-- page produits -->
   <hr>
-  <p><a href="ajout_produit.php">Ajouter un produit</a></p>
+  <p><a href="./ajout_produit.php">Ajouter un produit</a></p>
 
   <h3>Ajouter un nouveau catalogue</h3>
   <form method="POST">
@@ -87,7 +87,7 @@ try {
         <img src="<?= htmlspecialchars($catalogue['photo_url']) ?>" alt="Photo" width="200"><br>
         <p>Créé le : <?= htmlspecialchars($catalogue['date_creation']) ?></p>
 
-        <a href="modifier_catalogue.php?id=<?= $catalogue['id_catalogue'] ?>">✏️ Modifier</a> |
+        <a href="./modifier_catalogue.php?id=<?= $catalogue['id_catalogue'] ?>">✏️ Modifier</a> |
         <a href="?supprimer=<?= $catalogue['id_catalogue'] ?>" onclick="return confirm('Supprimer ce catalogue ?')">🗑️ Supprimer</a>
       </div>
     <?php endforeach; ?>

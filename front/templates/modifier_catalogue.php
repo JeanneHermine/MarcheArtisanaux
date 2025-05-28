@@ -1,10 +1,10 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once '../../back/config.php';
 
 if (!isset($_SESSION['artisan_id'])) {
     $_SESSION['error_message'] = "Veuillez vous connecter pour accéder à cette page.";
-    header("Location: connexion.php");
+    header("Location: ./connexion_artisan.php");
     exit();
 }
 
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $updateStmt = $pdo->prepare("UPDATE catalogues SET titre = ?, description = ?, photo_url = ? WHERE id_catalogue = ? AND id_artisan = ?");
     $updateStmt->execute([$titre, $description, $photo_url, $id_catalogue, $artisan_id]);
 
-    header("Location: catalogue_art.php");
+    header("Location: ./catalogue_art.php");
     exit();
 }
 ?>

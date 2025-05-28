@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once './config.php';
 
 try {
     $stmt = $pdo->prepare("SELECT * FROM clients WHERE email = ?");
@@ -10,15 +10,15 @@ try {
     if ($client && password_verify($_POST['mot_de_passe'], $client['mot_de_passe'])) {
         $_SESSION['client_id'] = $client['id_client'];
         $_SESSION['email'] = $client['email'];
-        header("Location: boutique.php");
+        header("Location: ../front/templates/boutique.php");
         exit();
     } else {
         $_SESSION['error_client'] = "Email ou mot de passe incorrect (client)";
-        header("Location: connexion.htlm");
+        header("Location: ../front/templates/connexion_client.php");
         exit();
     }
 } catch (PDOException $e) {
     $_SESSION['error_client'] = "Erreur : " . $e->getMessage();
-    header("Location: connexion.html");
+    header("Location: ../front/templates/connexion_client.php");
     exit();
 }

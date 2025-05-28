@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once './config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom = $_POST['nom'];
@@ -10,14 +10,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $_SESSION['message_artisan'] = "Adresse e-mail invalide.";
         $_SESSION['type_artisan'] = "error";
-        header("Location: inscription_client.php");
+        header("Location: ../front/templates/inscription_artisan.php");
         exit();
     }
     $confirmPassword = $_POST['confirmer_mot_de_passe'];
     if ($_POST['mot_de_passe'] !== $confirmPassword) {
         $_SESSION['message_artisan'] = "Les mots de passe ne correspondent pas.";
         $_SESSION['type_artisan'] = "error";
-        header("Location: inscription_artisan.php");
+        header("Location: ../front/templates/inscription_artisan.php");
         exit();
     }
     $mot_de_passe = password_hash($_POST['mot_de_passe'], PASSWORD_DEFAULT);
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($req->rowCount() > 0) {
         $_SESSION['message_artisan'] = "Un artisan avec cette adresse e-mail existe déjà.";
         $_SESSION['type_artisan'] = "error";
-        header("Location: inscription_artisan.php");
+        header("Location: ../front/templates/inscription_artisan.php");
         exit();
     }
 
@@ -41,13 +41,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['message_artisan'] = "Inscription réussie !";
         $_SESSION['type_artisan'] = "success";
         // Optionnel : rediriger vers une page de connexion ou de bienvenue
-        header("Location: connexion.html");
+        header("Location: ../front/templates/boutique.php");
         exit();
     } catch (PDOException $e) {
         $_SESSION['message_artisan'] = "Erreur : " . $e->getMessage();
         $_SESSION['type_artisan'] = "error";
     }
 
-    header("Location: inscription.html");
+    header("Location: ../front/templates/inscription_artisan.php");
     exit();
 }

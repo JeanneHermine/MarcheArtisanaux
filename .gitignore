@@ -1,4 +1,3 @@
-vendor/
-composer.lock
-# Ignore the vendor directory and composer.lock file
-composer.json
+back/vendor/
+back/composer.lock
+back/composer.json
