@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Inscription Artisan</title>
-  <link rel="stylesheet" href="inscription.css" />
+  <link rel="stylesheet" href="InscripConnexArtisan.css" />
 </head>
 <body>
 

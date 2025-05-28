@@ -24,37 +24,26 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>Boutique artisanale</title>
-    <style>
-        .catalogue {
-            display: inline-block;
-            margin: 10px;
-            text-align: center;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 10px;
-            width: 220px;
-        }
-
-        .catalogue img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-    </style>
+    <link rel="stylesheet" href="boutique.css">
 </head>
 <body>
-    <h2>🛍️ Boutique BEN'ART</h2>
-    <!-- boutons pour se connecter ou s'inscrire et profil si la personne est connectée -->
-    <?php if (isset($_SESSION['email'])): ?>
-        <a href="profil.php">Profil</a>
-    <?php else: ?>
-        <p>
-            <a href="connexion.php">Se connecter</a> |
-            <a href="inscription.php">S'inscrire</a>
-        </p>
-    <?php endif; ?>
+    <div class="navbar">
+        <div class="logo">🛍️ BEN'ART</div>
+        <div class="links">
+             <?php if (isset($_SESSION['email'])): ?>
+                 <a href="profil.php">Profil</a>
+             <?php else: ?>
+                 <a href="connexion.html">Se connecter</a>
+                 <a href="inscription.html">S'inscrire</a>
+             <?php endif; ?>
+        </div>
+    </div>
 
+
+    <!-- 🔍 Barre de recherche -->
+    <input type="text" id="searchInput" placeholder="Rechercher un catalogue..." style="width: 100%; padding: 10px; margin: 20px 0; border-radius: 8px; border: 1px solid #ccc; font-size: 16px;">
+
+    <!-- 📦 Catalogue affichage -->
     <?php foreach ($catalogues as $cat): ?>
         <div class="catalogue">
             <a href="voir_produits.php?id_catalogue=<?= $cat['id_catalogue'] ?>">
@@ -64,5 +53,19 @@ try {
             </a>
         </div>
     <?php endforeach; ?>
+
+    <!-- 🔍 Script de filtrage -->
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const catalogues = document.querySelectorAll('.catalogue');
+
+        searchInput.addEventListener('input', () => {
+            const valeur = searchInput.value.toLowerCase();
+            catalogues.forEach(catalogue => {
+                const texte = catalogue.textContent.toLowerCase();
+                catalogue.style.display = texte.includes(valeur) ? 'block' : 'none';
+            });
+        });
+    </script>
 </body>
 </html>

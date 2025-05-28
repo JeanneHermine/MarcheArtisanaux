@@ -49,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Profil <?= $isClient ? "Client" : "Artisan" ?></title>
+    <link rel="stylesheet" href="profil.css">
 </head>
 <body>
 <h2>Profil <?= $isClient ? "Client" : "Artisan" ?></h2>

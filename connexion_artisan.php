@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Connexion Artisan</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="InscripConnexArtisan.css" />
 </head>
 <body>
 

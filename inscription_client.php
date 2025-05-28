@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Inscription Client</title>
-  <link rel="stylesheet" href="inscription.css" />
+  <link rel="stylesheet" href="InscripConnexClient.css" />
 </head>
 <body>
 

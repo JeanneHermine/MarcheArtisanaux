@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Connexion Client</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="InscripConnexClient.css" />
 </head>
 <body>
 
