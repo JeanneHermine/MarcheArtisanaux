@@ -157,10 +157,10 @@ try {
     function envoyerMail($destinataire, $nom, $sujet, $contenuHTML) {
         $mail = new PHPMailer(true);
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com'; // à modifier
+        $mail->Host = 'smtp.gmail.com'; 
         $mail->SMTPAuth = true;
-        $mail->Username = 'modestinhounga78@gmail.com'; // à modifier
-        $mail->Password = 'eksm lwzv qgap roru';     // à modifier
+        $mail->Username = 'gradinesama@gmail.com'; 
+        $mail->Password = 'rwgx oups lusy fkqq';     
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
