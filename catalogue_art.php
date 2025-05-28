@@ -53,6 +53,12 @@ try {
 </head>
 <body>
   <h2>Bienvenue, <?php echo htmlspecialchars($_SESSION['email']); ?></h2>
+  <!-- accueil -->
+  <p><a href="boutique.php">Accueil</a></p>
+  <p><a href="deconnexion.php">Déconnexion</a></p>
+  <!-- page produits -->
+  <hr>
+  <p><a href="ajout_produit.php">Ajouter un produit</a></p>
 
   <h3>Ajouter un nouveau catalogue</h3>
   <form method="POST">

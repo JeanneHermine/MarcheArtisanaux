@@ -31,7 +31,8 @@ try {
         <div class="logo">🛍️ BEN'ART</div>
         <div class="links">
              <?php if (isset($_SESSION['email'])): ?>
-                 <a href="profil.php">Profil</a>
+                <a href="profil.php">Profil</a>
+                <a href="deconnexion.php">Déconnexion</a>
              <?php else: ?>
                  <a href="connexion.html">Se connecter</a>
                  <a href="inscription.html">S'inscrire</a>

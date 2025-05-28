@@ -26,6 +26,9 @@
     <label>Mot de passe :</label>
     <input type="password" name="mot_de_passe" required>
 
+    <label>Confirmer le mot de passe :</label>
+    <input type="password" name="confirmer_mot_de_passe" required>
+
     <label>Adresse :</label>
     <input type="text" name="adresse" required>
 

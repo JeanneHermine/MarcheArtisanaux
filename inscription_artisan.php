@@ -22,6 +22,12 @@
     <input type="email" name="email" required>
     <label>Mot de passe :</label>
     <input type="password" name="mot_de_passe" required>
+    <label>Confirmer le mot de passe :</label>
+    <input type="password" name="confirmer_mot_de_passe" required>
+    <label>Numéro de téléphone :</label>
+    <input type="text" name="telephone" required>
+    <label>Ville :</label>  
+    <input type="text" name="ville" required>
     <input type="submit" value="S'inscrire comme artisan">
   </form>
 </div>

@@ -3,7 +3,7 @@ session_start();
 require_once 'config.php';
 
 if (!isset($_SESSION['client_id']) && !isset($_SESSION['artisan_id'])) {
-    header("Location: connexion.php");
+    header("Location: connexion.html");
     exit();
 }
 
@@ -53,6 +53,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 <h2>Profil <?= $isClient ? "Client" : "Artisan" ?></h2>
+<!-- bouton deconnexion -->
+<a href="deconnexion.php">Déconnexion</a>
+<!-- bouton accueil -->
+<a href="boutique.php">Accueil</a>
+
 
 <form method="POST">
     <label>Nom :</label><br>
