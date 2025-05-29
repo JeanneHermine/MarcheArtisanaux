@@ -30,8 +30,8 @@ try {
     <div class="navbar">
         <div class="logo">🛍️ BEN'ART</div>
         <div class="links">
-             <?php if (isset($_SESSION['email'])): ?>
-                <a href="./profil.php">Profil</a>
+             <?php if (isset($_SESSION['artisan_id'])|| isset($_SESSION['client_id'])): ?>
+                <a href="./profil/profil.php">Profil</a>
                 <a href="../../back/deconnexion.php">Déconnexion</a>
              <?php else: ?>
                  <a href="./connexion.html">Se connecter</a>

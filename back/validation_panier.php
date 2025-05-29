@@ -155,26 +155,43 @@ try {
 
 
     function envoyerMail($destinataire, $nom, $sujet, $contenuHTML) {
-        $mail = new PHPMailer(true);
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com'; 
-        $mail->SMTPAuth = true;
-        $mail->Username = 'gradinesama@gmail.com'; 
-        $mail->Password = 'rwgx oups lusy fkqq';     
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
+        if (empty($destinataire) || !filter_var($destinataire, FILTER_VALIDATE_EMAIL)) {
+            return false; 
+        }
 
-        $mail->setFrom('no-reply@mev.com', 'Test Mail');
-        $mail->addAddress($destinataire, $nom);
-        $mail->isHTML(true);
-        $mail->Subject = $sujet;
-        $mail->Body = $contenuHTML;
-        $mail->send();
+        try {
+            $mail = new PHPMailer(true);
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com'; 
+            $mail->SMTPAuth = true;
+            $mail->Username = 'gradinesama@gmail.com'; 
+            $mail->Password = 'rwgx oups lusy fkqq';     
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
+
+            $mail->setFrom('no-reply@mev.com', 'Test Mail');
+            $mail->addAddress($destinataire, $nom);
+            $mail->isHTML(true);
+            $mail->Subject = $sujet;
+            $mail->Body = $contenuHTML;
+            $mail->send();
+            return true;
+        } catch (Exception $e) {
+            error_log("Erreur d'envoi de mail à $destinataire : " . $e->getMessage());
+            return false;
+        }
     }
 
 
-    envoyerMail($client['email'], $client['nom'], 'Confirmation de votre commande', $emailClient);
-    envoyerMail($artisan['email'], $artisan['nom'], 'Nouvelle commande reçue', $emailArtisan);
+
+    if (!empty($client['email'])) {
+        envoyerMail($client['email'], $client['nom'], 'Confirmation de votre commande', $emailClient);
+    }
+
+    if (!empty($artisan['email'])) {
+        envoyerMail($artisan['email'], $artisan['nom'], 'Nouvelle commande reçue', $emailArtisan);
+    }
+
     header("Location: ../front/templates/messagerie.php?id_conversation=" . $id_conversation);
     exit();
 

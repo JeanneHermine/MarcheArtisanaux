@@ -2,7 +2,8 @@
 session_start();
 require_once '../../back/config.php';
 
-if (!isset($_SESSION['artisan_id']) || !isset($_SESSION['email'])) {
+if (!isset($_SESSION['artisan_id']) || !isset($_SESSION['identifiant_artisan'])) {
+    $_SESSION['error_message'] = "Veuillez vous connecter pour accéder à cette page.";  
     header("Location: ./connexion_artisan.php");
     exit();
 }
@@ -93,7 +94,7 @@ try {
     <label>Description :</label><br>
     <textarea name="description" required></textarea><br><br>
 
-    <label>Prix (€) :</label><br>
+    <label>Prix (FCFA) :</label><br>
     <input type="number" name="prix" step="0.01" required><br><br>
 
     <label>Stock :</label><br>
@@ -133,7 +134,7 @@ try {
         <td><?= htmlspecialchars($prod['nom_catalogue']) ?></td>
         <td><?= htmlspecialchars($prod['nom_produit']) ?></td>
         <td><?= htmlspecialchars($prod['description']) ?></td>
-        <td><?= number_format($prod['prix'], 2) ?> €</td>
+        <td><?= number_format($prod['prix'], 2) ?> FCFA</td>
         <td><?= $prod['stock'] ?></td>
         <td><?= $prod['statut'] ?></td>
         <td><img src="<?= htmlspecialchars($prod['photo_url']) ?>" alt="Photo" width="60"></td>

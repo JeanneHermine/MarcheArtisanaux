@@ -14,12 +14,15 @@
     <p class="error"><?= $_SESSION['error_artisan']; unset($_SESSION['error_artisan']); ?></p>
   <?php endif; ?>
   <form method="POST" action="../../back/traitement_connexion_artisan.php">
-    <label>Email :</label>
-    <input type="email" name="email" required>
-    <label>Mot de passe :</label>
-    <input type="password" name="mot_de_passe" required>
-    <input type="submit" value="Se connecter en tant qu'artisan">
+      <label>Email ou numéro de téléphone :</label>
+      <input type="text" name="identifiant" required>
+
+      <label>Mot de passe :</label>
+      <input type="password" name="mot_de_passe" required>
+
+      <input type="submit" value="Se connecter en tant qu'artisan">
   </form>
+
 </div>
 
 </body>

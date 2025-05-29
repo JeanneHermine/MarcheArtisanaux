@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <label>Description :</label><br>
     <textarea name="description" required><?= htmlspecialchars($produit['description']) ?></textarea><br><br>
 
-    <label>Prix (€) :</label><br>
+    <label>Prix (FCFA) :</label><br>
     <input type="number" name="prix" step="0.01" value="<?= htmlspecialchars($produit['prix']) ?>" required><br><br>
 
     <label>Stock :</label><br>

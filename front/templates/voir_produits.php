@@ -137,6 +137,11 @@ aside#panier.ouvert {
           <button type="submit">Ajouter au panier</button>
         </form>
       </div>
+      <div id="avis-section" style="margin-top: 20px;">
+      <h4>Avis des clients :</h4>
+      <div id="liste-avis">Chargement des avis...</div>
+    </div>
+
 
     </div>
   </div>
@@ -158,16 +163,39 @@ aside#panier.ouvert {
     const panier = [];
 
     function afficherProduit(produit) {
-    document.getElementById('details').style.display = 'flex';
-    document.getElementById('id_produit').value = produit.id_produit;
-    document.getElementById('titre-produit').innerText = produit.nom_produit;
-    document.getElementById('description-produit').innerText = produit.description;
-    document.getElementById('prix-produit').innerText = parseFloat(produit.prix).toFixed(2) + ' FCFA';
-    document.getElementById('photo-produit').src = produit.photo_url;
-    const quantiteInput = document.getElementById('quantite');
-    quantiteInput.value = 1;                          
-    quantiteInput.max = produit.stock;     
+        document.getElementById('details').style.display = 'flex';
+        document.getElementById('id_produit').value = produit.id_produit;
+        document.getElementById('titre-produit').innerText = produit.nom_produit;
+        document.getElementById('description-produit').innerText = produit.description;
+        document.getElementById('prix-produit').innerText = parseFloat(produit.prix).toFixed(2) + ' FCFA';
+        document.getElementById('photo-produit').src = produit.photo_url;
+
+        const quantiteInput = document.getElementById('quantite');
+        quantiteInput.value = 1;
+        quantiteInput.max = produit.stock;
+
+        // Charger les avis
+        fetch(`get_avis.php?id_produit=${produit.id_produit}`)
+            .then(res => res.json())
+            .then(data => {
+                const avisContainer = document.getElementById('liste-avis');
+                if (data.length === 0) {
+                    avisContainer.innerHTML = "<p>Aucun avis pour ce produit.</p>";
+                } else {
+                    avisContainer.innerHTML = data.map(avis => `
+                        <div style="margin-bottom:10px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">
+                            <strong>${avis.nom} ${avis.prenom}</strong> 
+                            <span style="color: #f39c12;">${"★".repeat(avis.note)}${"☆".repeat(5 - avis.note)}</span>
+                            <p>${avis.commentaire}</p>
+                            <small>${avis.date_avis}</small>
+                        </div>
+                    `).join('');
+                }
+            }).catch(() => {
+                document.getElementById('liste-avis').innerText = "Erreur lors du chargement des avis.";
+            });
     }
+
 
     function ajouterAuPanier(event) {
       event.preventDefault();

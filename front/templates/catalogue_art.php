@@ -52,7 +52,7 @@ try {
   <title>Gestion des catalogues</title>
 </head>
 <body>
-  <h2>Bienvenue, <?php echo htmlspecialchars($_SESSION['email']); ?></h2>
+  <h2>Bienvenue, <?php echo htmlspecialchars($_SESSION['identifiant_artisan']); ?></h2>
   <!-- accueil -->
   <p><a href="./boutique.php">Accueil</a></p>
   <p><a href="../../back/deconnexion.php">Déconnexion</a></p>

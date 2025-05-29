@@ -21,7 +21,7 @@
     <input type="text" name="prenom" required>
 
     <label>Email :</label>
-    <input type="email" name="email" required>
+    <input type="email" name="email">
 
     <label>Mot de passe :</label>
     <input type="password" name="mot_de_passe" required>
@@ -33,7 +33,7 @@
     <input type="text" name="adresse" required>
 
     <label>Téléphone :</label>
-    <input type="text" name="telephone" required>
+    <input type="text" name="telephone">
 
     <input type="submit" value="S'inscrire comme client">
   </form>

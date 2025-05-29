@@ -19,13 +19,13 @@
     <label>Prénom :</label>
     <input type="text" name="prenom" required>
     <label>Email :</label>
-    <input type="email" name="email" required>
+    <input type="email" name="email">
     <label>Mot de passe :</label>
     <input type="password" name="mot_de_passe" required>
     <label>Confirmer le mot de passe :</label>
     <input type="password" name="confirmer_mot_de_passe" required>
     <label>Numéro de téléphone :</label>
-    <input type="text" name="telephone" required>
+    <input type="text" name="telephone">
     <label>Ville :</label>  
     <input type="text" name="ville" required>
     <input type="submit" value="S'inscrire comme artisan">
