@@ -32,6 +32,7 @@ try {
         <div class="links">
              <?php if (isset($_SESSION['artisan_id'])|| isset($_SESSION['client_id'])): ?>
                 <a href="./profil/profil.php">Profil</a>
+                <a href="./catalogue_art.php">Mes catalogues</a>
                 <a href="../../back/deconnexion.php">Déconnexion</a>
              <?php else: ?>
                  <a href="./connexion.html">Se connecter</a>
