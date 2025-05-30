@@ -104,6 +104,12 @@ try {
     </style>
 </head>
 <body>
+    <header>
+    <h1>Messagerie</h1>
+    <nav>
+        <a href="./boutique.php">Accueil</a>
+        <a href="./chat.php">Chat</a>
+    </header>
 
 <div class="message-box">
     <div class="messages-container" id="messages">

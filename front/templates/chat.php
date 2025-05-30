@@ -55,6 +55,9 @@ try {
     </style>
 </head>
 <body>
+    <header>
+        <a href="./boutique.php">Accueil</a>
+    </header>
 
 <div class="chat-list">
     <h2>Mes conversations</h2>
