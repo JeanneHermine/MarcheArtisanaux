@@ -36,7 +36,7 @@ try {
              <?php else: ?>
                  <a href="./connexion.html">Se connecter</a>
                  <a href="./inscription.html">S'inscrire</a>
-                 <a href=".about.html">À propos</a>
+                 <a href="./about.html">À propos</a>
              <?php endif; ?>
         </div>
     </div>
