@@ -34,7 +34,7 @@ try {
                 <a href="./profil/profil.php">Profil</a>
                 <a href="./catalogue_art.php">Mes catalogues</a>
                 <a href="../../back/deconnexion.php">Déconnexion</a>
-             <?php elseif (isset($_SESSION['client_id'])): ?>
+              <?php elseif (isset($_SESSION['client_id'])): ?>
                 <a href="./profil/profil.php">Mon profil</a>
                 <a href="../../back/deconnexion.php">Déconnexion</a>
              <?php else: ?>
@@ -45,11 +45,8 @@ try {
         </div>
     </div>
 
-
-    <!-- 🔍 Barre de recherche -->
     <input type="text" id="searchInput" placeholder="Rechercher un catalogue..." style="width: 100%; padding: 10px; margin: 20px 0; border-radius: 8px; border: 1px solid #ccc; font-size: 16px;">
 
-    <!-- 📦 Catalogue affichage -->
     <?php foreach ($catalogues as $cat): ?>
         <div class="catalogue">
             <a href="./voir_produits.php?id_catalogue=<?= $cat['id_catalogue'] ?>">
@@ -60,7 +57,6 @@ try {
         </div>
     <?php endforeach; ?>
 
-    <!-- 🔍 Script de filtrage -->
     <script>
         const searchInput = document.getElementById('searchInput');
         const catalogues = document.querySelectorAll('.catalogue');
