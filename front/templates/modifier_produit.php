@@ -51,6 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
   <meta charset="UTF-8">
   <title>Modifier le produit</title>
+  <link rel="stylesheet" href="../assets/css/ajout.css">
 </head>
 <body>
   <h2>Modifier le produit de « <?= htmlspecialchars($produit['nom_catalogue']) ?> »</h2>
