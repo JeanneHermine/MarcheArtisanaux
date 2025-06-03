@@ -33,9 +33,11 @@ try {
              <?php if (isset($_SESSION['artisan_id'])): ?>
                 <a href="./profil/profil.php">Profil</a>
                 <a href="./catalogue_art.php">Mes catalogues</a>
+                <a href="./about.html">À propos</a>
                 <a href="../../back/deconnexion.php">Déconnexion</a>
               <?php elseif (isset($_SESSION['client_id'])): ?>
                 <a href="./profil/profil.php">Mon profil</a>
+                <a href="./about.html">À propos</a>
                 <a href="../../back/deconnexion.php">Déconnexion</a>
              <?php else: ?>
                  <a href="./connexion.html">Se connecter</a>
