@@ -103,49 +103,67 @@ body {
     font-size: 16px;
     max-width: 600px;
 }
-.site-info {
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
+/* Fade animation */
+.fade-init {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation for info-bloc */
 .info-bloc {
     display: flex;
     align-items: center;
     gap: 30px;
     flex-wrap: wrap;
+    opacity: 0;  /* Initial opacity for fade-in */
+    transform: translateY(50px);  /* Initial position for upward movement */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
+/* For reverse direction */
 .info-bloc.reverse {
     flex-direction: row-reverse;
 }
 
+/* Add this effect to the hover state of catalogue */
+.catalogue:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* For responsive styling, add a fade-in effect as well */
+@media (max-width: 768px) {
+    .info-bloc, .info-bloc.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Styling for site-info as a whole */
+.site-info {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Apply fade-in on the image */
 .info-bloc img {
     width: 100%;
-    max-width: 500px;
+    max-width: 350px;
     height: auto;
-    border-radius: 12px;
+    border-radius: 15px;
     object-fit: cover;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.info-text {
-    flex: 1;
-    min-width: 280px;
-}
-
-.info-text h2 {
-    color: #1f2833;
-    margin-bottom: 10px;
-}
-
-.info-text p {
-    color: #555;
-    line-height: 1.6;
-    font-size: 1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: opacity 1s ease-out;  /* Smooth fade-in on image */
 }
 .footer {
     background-color: #1f2833;
