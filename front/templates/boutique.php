@@ -52,6 +52,21 @@ try {
     </div>
 
     <input type="text" id="searchInput" placeholder="Rechercher un catalogue...">
+    
+    <div class="catalogue-section">
+        <div class="video-background">
+          <video autoplay muted loop playsinline>
+            <source src="../../front/assets/img/14.mp4" type="video/mp4">
+          </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <div class="catalogue-content">
+        <div class="catalogue-grid">
+           <!-- Ton contenu de produits ici -->
+        </div>
+      </div>
+    </div>
 
     <div class="catalogue-grid">
         <?php if (empty($catalogues)): ?>
@@ -68,30 +83,30 @@ try {
             </div>
         <?php endforeach; ?>
     </div>
-    <div class="site-info">
-    <div class="info-bloc">
-        <img src="https://images.pexels.com/photos/28100861/pexels-photo-28100861/free-photo-of-atelier-velo.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Atelier artisan">
-        <div class="info-text">
-            <h2>Notre mission</h2>
-            <p>Chez BEN'ART, nous mettons en lumière le talent des artisans locaux. Notre plateforme permet à chacun de partager ses créations et de toucher un public plus large.</p>
-        </div>
+<div class="site-info">
+  <div class="info-bloc fade-init" data-aos="fade-right">
+    <img src="https://images.pexels.com/photos/28100861/pexels-photo-28100861/free-photo-of-atelier-velo.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Atelier artisan">
+    <div class="info-text">
+      <h2>Notre mission</h2>
+      <p>Chez BEN'ART, nous mettons en lumière le talent des artisans locaux...</p>
     </div>
+  </div>
 
-    <div class="info-bloc reverse">
-        <img src="https://images.pexels.com/photos/11588124/pexels-photo-11588124.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Marché artisanal">
-        <div class="info-text">
-            <h2>Pourquoi acheter chez nous ?</h2>
-            <p>Chaque article est unique, conçu avec passion et savoir-faire. En achetant ici, vous soutenez directement des artistes et artisans indépendants.</p>
-        </div>
+  <div class="info-bloc reverse fade-init" data-aos="fade-left">
+    <img src="https://images.pexels.com/photos/11588124/pexels-photo-11588124.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Marché artisanal">
+    <div class="info-text">
+      <h2>Pourquoi acheter chez nous ?</h2>
+      <p>Chaque article est unique, conçu avec passion et savoir-faire...</p>
     </div>
+  </div>
 
-    <div class="info-bloc">
-        <img src="https://images.pexels.com/photos/13740587/pexels-photo-13740587.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Outils artisanaux">
-        <div class="info-text">
-            <h2>Des créations uniques</h2>
-            <p>Du bois, du cuir, du tissu, du métal... chaque matière est transformée à la main pour vous proposer des produits originaux et durables.</p>
-        </div>
+  <div class="info-bloc fade-init" data-aos="fade-up">
+    <img src="https://images.pexels.com/photos/13740587/pexels-photo-13740587.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Outils artisanaux">
+    <div class="info-text">
+      <h2>Des créations uniques</h2>
+      <p>Du bois, du cuir, du tissu, du métal... chaque matière est transformée...</p>
     </div>
+  </div>
 </div>
 
 <footer class="footer">
@@ -121,7 +136,6 @@ try {
     <p class="footer-bottom">&copy; <?= date('Y') ?> BEN'ART - Tous droits réservés.</p>
 </footer>
 
-
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const observer = new IntersectionObserver((entries) => {
@@ -149,6 +163,5 @@ try {
         });
 
     </script>
-    
 </body>
 </html>
