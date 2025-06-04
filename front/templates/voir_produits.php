@@ -33,83 +33,13 @@ try {
 <head>
   <meta charset="UTF-8">
   <title>Catalogue - <?= htmlspecialchars($catalogue['titre']) ?></title>
-  <style>
-    body { display: flex; font-family: sans-serif; }
-    .produits { flex: 1; padding: 20px; }
-    .produit { display: inline-block; width: 200px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; padding: 10px; cursor: pointer; }
-    .produit img { width: 100%; height: 120px; object-fit: cover; border-radius: 6px; }
-    #details { width: 90%; margin: 0 auto; margin-top: 30px; padding: 20px; border-top: 2px solid #ddd; display: none; gap: 40px; flex-wrap: wrap; }
-    #details-left, #details-right { flex: 1; min-width: 300px; }
-    #details-right img { max-width: 100%; max-height: 250px; object-fit: cover; border-radius: 10px; }
-    aside#panier { width: 300px; background: #f7f7f7; border-left: 2px solid #ccc; padding: 20px; }
-    aside#panier h3 { margin-top: 0; }
-    .panier-item { border-bottom: 1px solid #ddd; padding: 5px 0; }
-    #total { margin-top: 15px; font-weight: bold; }
-    #toggle-panier {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  z-index: 1000;
-}
-
-#toggle-panier .badge {
-  position: absolute;
-  top: 2px;
-  right: 2px;
-  background: red;
-  color: white;
-  font-size: 12px;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-aside#panier {
-  position: fixed;
-  top: 0;
-  right: -320px; /* caché par défaut */
-  width: 300px;
-  height: 100%;
-  background: #fff;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.1);
-  transition: right 0.3s ease;
-  padding: 20px;
-  z-index: 999;
-  overflow-y: auto;
-}
-
-aside#panier.ouvert {
-  right: 0;
-}
-
-#fermer-panier {
-  background: transparent;
-  border: none;
-  font-size: 20px;
-  float: right;
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-
-  </style>
+  <link rel="stylesheet" href="../../front/assets/css/visuel_produit.css">
 </head>
 <body>
 
   <div class="produits">
     <h2>Catalogue : <?= htmlspecialchars($catalogue['titre']) ?></h2>
-
+    <a href="javascript:history.back()" class="btn-retour">← Retour</a>
     <?php if (empty($produits)): ?>
       <p>Aucun produit disponible.</p>
     <?php else: ?>

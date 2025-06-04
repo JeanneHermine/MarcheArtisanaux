@@ -46,13 +46,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>Mes conversations</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
-        .chat-list { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px #ccc; }
-        .chat-item { padding: 10px; border-bottom: 1px solid #ddd; }
-        .chat-item a { text-decoration: none; color: #333; display: block; }
-        .chat-item:hover { background-color: #f0f0f0; }
-    </style>
+    <link rel="stylesheet" href="../../front/assets/css/chat.css">
 </head>
 <body>
     <header>

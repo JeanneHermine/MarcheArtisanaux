@@ -34,74 +34,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>Messagerie</title>
-    <style>
-      html, body {
-          height: 100%;
-          margin: 0;
-          font-family: Arial, sans-serif;
-          background-color: #f4f4f4;
-      }
-
-      .message-box {
-          display: flex;
-          flex-direction: column;
-          height: 100vh;
-          max-width: 600px;
-          margin: auto;
-          background: white;
-          border-radius: 8px;
-          box-shadow: 0 0 10px #ccc;
-          overflow: hidden;
-      }
-
-      .messages-container {
-          flex: 1;
-          overflow-y: auto;
-          padding: 20px;
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-      }
-
-      .message {
-          padding: 10px;
-          border-radius: 5px;
-          max-width: 80%;
-      }
-
-      .client {
-          background-color: #e7f5ff;
-          align-self: flex-start;
-      }
-
-      .artisan {
-          background-color: #fff3cd;
-          align-self: flex-end;
-      }
-
-      .form-message {
-          padding: 15px;
-          border-top: 1px solid #ddd;
-          background-color: #fafafa;
-      }
-
-      textarea {
-          width: 100%;
-          height: 80px;
-          padding: 10px;
-          resize: none;
-      }
-
-      button {
-          padding: 10px 20px;
-          margin-top: 10px;
-          background-color: #007bff;
-          color: white;
-          border: none;
-          border-radius: 5px;
-      }
-
-    </style>
+    <link rel="stylesheet" href="../../front/assets/css/messagerie.css">
 </head>
 <body>
     <header>
@@ -109,6 +42,7 @@ try {
     <nav>
         <a href="./boutique.php">Accueil</a>
         <a href="./chat.php">Chat</a>
+        <a href="javascript:history.back()" class="btn-retour"> Retour</a>
     </header>
 
 <div class="message-box">
