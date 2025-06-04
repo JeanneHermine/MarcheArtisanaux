@@ -20,14 +20,18 @@ require_once 'infos_utilisateur.php'; // gestion du formulaire et récupération
 <head>
     <meta charset="UTF-8">
     <title>Profil <?= $isClient ? "Client" : "Artisan" ?></title>
-    <link rel="stylesheet" href="profil.css">
+    <link rel="stylesheet" href="../../assets/css/profil.css">
 </head>
 <body>
 
-<h2>Profil <?= $isClient ? "Client" : "Artisan" ?></h2>
+<div class="header-bar">
+  <h2>Profil <?= $isClient ? "Client" : "Artisan" ?></h2>
+  <div class="nav-links">
+    <a href="../../../back/deconnexion.php">Déconnexion</a>
+    <a href="../boutique.php">Accueil</a>
+  </div>
+</div>
 
-<a href="../../../back/deconnexion.php">Déconnexion</a> |
-<a href="../boutique.php">Accueil</a>
 
 <form method="POST">
     <!-- champs du formulaire -->

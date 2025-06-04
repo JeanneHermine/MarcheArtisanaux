@@ -74,6 +74,7 @@ try {
 <head>
   <meta charset="UTF-8">
   <title>Gérer mes produits</title>
+  <link rel="stylesheet" href="../assets/css/ajout.css">
 </head>
 <body>
   <h2>Ajouter un produit à un catalogue</h2>

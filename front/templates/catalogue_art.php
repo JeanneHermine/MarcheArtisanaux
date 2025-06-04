@@ -50,14 +50,22 @@ try {
 <head>
   <meta charset="UTF-8">
   <title>Gestion des catalogues</title>
+  <link rel="stylesheet" href="../assets/css/catalogue.css">
+
 </head>
 <body>
+  <div class="top-bar">
   <h2>Bienvenue, <?php echo htmlspecialchars($_SESSION['identifiant_artisan']); ?></h2>
-  <!-- accueil -->
-  <p><a href="./boutique.php">Accueil</a></p>
-  <p><a href="../../back/deconnexion.php">Déconnexion</a></p>
-  <!-- page produits -->
+  <div class="actions">
+    <a href="./boutique.php">🏠 Accueil</a>
+    <a href="../../back/deconnexion.php">🚪 Déconnexion</a>
+  </div>
+</div>
+
   <hr>
+  <h3>Ajouter un produit à votre catalogue</h3>
+  <p>Pour ajouter un produit, vous devez d'abord créer un catalogue.</p>
+  
   <p><a href="./ajout_produit.php">Ajouter un produit</a></p>
 
   <h3>Ajouter un nouveau catalogue</h3>
