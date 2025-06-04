@@ -10,6 +10,7 @@ try {
         SELECT c.*, a.nom, a.prenom
         FROM catalogues c
         JOIN artisans a ON c.id_artisan = a.id_artisan
+        WHERE a.statut = 'actif'
         ORDER BY c.date_creation DESC
     ");
     $catalogues = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -44,22 +45,28 @@ try {
                  <a href="./inscription.html">S'inscrire</a>
                  <a href="./about.html">À propos</a>
              <?php endif; ?>
+             <?php if (isset($_SESSION['admin_id'])): ?>
+                <a href="./gestion_artisan">Admin</a>
+            <?php endif; ?>
         </div>
     </div>
 
     <input type="text" id="searchInput" placeholder="Rechercher un catalogue...">
 
     <div class="catalogue-grid">
-    <?php foreach ($catalogues as $cat): ?>
-        <div class="catalogue">
-            <a href="./voir_produits.php?id_catalogue=<?= $cat['id_catalogue'] ?>">
-                <img src="<?= htmlspecialchars($cat['photo_url']) ?>" alt="Image du catalogue">
-                <h4><?= htmlspecialchars($cat['titre']) ?></h4>
-            </a>
-            <p>Par <strong><?= htmlspecialchars($cat['prenom'] . ' ' . $cat['nom']) ?></strong></p>
-            <a href="./voir_produits.php?id_catalogue=<?= $cat['id_catalogue'] ?>" class="btn">Voir les produits</a>
-        </div>
-    <?php endforeach; ?>
+        <?php if (empty($catalogues)): ?>
+            <p>Aucun catalogue disponible pour le moment.</p>
+        <?php endif; ?>
+        <?php foreach ($catalogues as $cat): ?>
+            <div class="catalogue">
+                <a href="./voir_produits.php?id_catalogue=<?= $cat['id_catalogue'] ?>">
+                    <img src="<?= htmlspecialchars($cat['photo_url']) ?>" alt="Image du catalogue">
+                    <h4><?= htmlspecialchars($cat['titre']) ?></h4>
+                </a>
+                <p>Par <strong><?= htmlspecialchars($cat['prenom'] . ' ' . $cat['nom']) ?></strong></p>
+                <a href="./voir_produits.php?id_catalogue=<?= $cat['id_catalogue'] ?>" class="btn">Voir les produits</a>
+            </div>
+        <?php endforeach; ?>
     </div>
     <div class="site-info">
     <div class="info-bloc">
