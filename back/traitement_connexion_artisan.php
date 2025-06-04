@@ -7,6 +7,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mot_de_passe = $_POST['mot_de_passe'];
 
     try {
+        $stmt = $pdo->prepare("SELECT * FROM administrateurs WHERE email = :identifiant LIMIT 1");
+        $stmt->execute(['identifiant' => $identifiant]);
+        $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($admin && password_verify($mot_de_passe, $admin['mot_de_passe'])) {
+            $_SESSION['admin_id'] = $admin['id_admin'];
+
+
+            header("Location: ../front/templates/gestion_artisan.php");
+            exit();
+        }
+
         $stmt = $pdo->prepare("
             SELECT * FROM artisans 
             WHERE email = :identifiant OR numero = :identifiant

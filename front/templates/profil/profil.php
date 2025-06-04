@@ -12,6 +12,13 @@ $id = $isClient ? $_SESSION['client_id'] : $_SESSION['artisan_id'];
 $table = $isClient ? 'clients' : 'artisans';
 $id_column = $isClient ? 'id_client' : 'id_artisan';
 
+$id_artisan = $_SESSION['artisan_id'];
+
+// Vérification du statut de l’artisan
+$stmt = $pdo->prepare("SELECT statut FROM artisans WHERE id_artisan = ?");
+$stmt->execute([$id_artisan]);
+$artisan = $stmt->fetch(PDO::FETCH_ASSOC);
+
 require_once 'infos_utilisateur.php'; // gestion du formulaire et récupération $user
 ?>
 
@@ -26,10 +33,17 @@ require_once 'infos_utilisateur.php'; // gestion du formulaire et récupération
 
 <div class="header-bar">
   <h2>Profil <?= $isClient ? "Client" : "Artisan" ?></h2>
-  <div class="nav-links">
-    <a href="../../../back/deconnexion.php">Déconnexion</a>
-    <a href="../boutique.php">Accueil</a>
-  </div>
+    <div class="nav-links">
+        <a href="../boutique.php">Accueil</a>
+        <a href="../../../back/deconnexion.php">Déconnexion</a>
+
+        <?php if ($isClient): ?>
+            <a href="../chat.php">Discussions</a>
+        <?php elseif ($artisan && $artisan['statut'] === 'actif'): ?>
+            <a href="../chat.php">Discussions</a>
+        <?php endif; ?>
+    </div>
+
 </div>
 
 

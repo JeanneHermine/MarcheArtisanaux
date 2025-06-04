@@ -70,7 +70,7 @@ try {
         <p style="font-size: 16px;">Bonjour <?= htmlspecialchars($artisan['nom']) ?>,</p>
         
         <p style="font-size: 15px;">
-            Le client <strong><?= htmlspecialchars($client['nom']) ?></strong> (email : <a href="mailto:<?= htmlspecialchars($client['email']) ?>"><?= htmlspecialchars($client['email']) ?></a>)
+            Le client <strong><?= htmlspecialchars($client['nom']) ?></strong> 
             a passé une commande. Voici les détails :
         </p>
 

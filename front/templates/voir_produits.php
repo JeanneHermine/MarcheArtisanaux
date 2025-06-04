@@ -20,8 +20,20 @@ try {
         exit();
     }
 
-    $stmt = $pdo->prepare("SELECT * FROM produits WHERE id_catalogue = :id_catalogue AND statut = 'disponible'");
+    $stmt = $pdo->prepare("
+      SELECT p.*
+      FROM produits p
+      JOIN catalogues c ON p.id_catalogue = c.id_catalogue
+      JOIN artisans a ON c.id_artisan = a.id_artisan
+      WHERE p.id_catalogue = :id_catalogue
+        AND p.statut = 'disponible'
+        AND a.statut = 'actif'
+    ");
     $stmt->execute(['id_catalogue' => $id_catalogue]);
+    if ($stmt->rowCount() === 0) {
+        echo "Aucun produit disponible dans ce catalogue.";
+        exit();
+    }
     $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 } catch (PDOException $e) {
