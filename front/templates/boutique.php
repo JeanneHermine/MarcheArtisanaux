@@ -48,6 +48,21 @@ try {
     </div>
 
     <input type="text" id="searchInput" placeholder="Rechercher un catalogue...">
+    
+    <div class="catalogue-section">
+        <div class="video-background">
+          <video autoplay muted loop playsinline>
+            <source src="../../front/assets/img/14.mp4" type="video/mp4">
+          </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <div class="catalogue-content">
+        <div class="catalogue-grid">
+           <!-- Ton contenu de produits ici -->
+        </div>
+      </div>
+    </div>
 
     <div class="catalogue-grid">
     <?php foreach ($catalogues as $cat): ?>
