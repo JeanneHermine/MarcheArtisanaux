@@ -114,19 +114,32 @@ try {
     <p class="footer-bottom">&copy; <?= date('Y') ?> BEN'ART - Tous droits réservés.</p>
 </footer>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const fadeElements = document.querySelectorAll('.fade-init');
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("fade-in");
+                    }
+                });
+            }, { threshold: 0.1 });
 
-    window.addEventListener('scroll', function() {
-      fadeElements.forEach(function(el) {
-        if (el.getBoundingClientRect().top < window.innerHeight - 50) {
-          el.classList.add('fade-in');
-        }
-      });
-    });
-  });
-</script>
+            document.querySelectorAll('.catalogue, .info-bloc').forEach(el => {
+                el.classList.add('fade-init');
+                observer.observe(el);
+            });
+        });
+        const searchInput = document.getElementById('searchInput');
+        const catalogues = document.querySelectorAll('.catalogue');
 
+        searchInput.addEventListener('input', () => {
+            const valeur = searchInput.value.toLowerCase();
+            catalogues.forEach(catalogue => {
+                const texte = catalogue.textContent.toLowerCase();
+                catalogue.style.display = texte.includes(valeur) ? 'block' : 'none';
+            });
+        });
+
+    </script>
 </body>
 </html>
