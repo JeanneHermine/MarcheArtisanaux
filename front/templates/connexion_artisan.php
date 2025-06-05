@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Connexion Artisan</title>
   <link rel="stylesheet" href="../assets/css/InscripConnexArtisan.css" />
+  <link rel="icon" href="../assets/img/logo.jpeg" type="image/x-icon">
 </head>
 <body>
 

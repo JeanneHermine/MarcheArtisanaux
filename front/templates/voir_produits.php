@@ -21,12 +21,11 @@ try {
     }
 
     $stmt = $pdo->prepare("
-      SELECT p.*
+      SELECT p.*, a.numero
       FROM produits p
       JOIN catalogues c ON p.id_catalogue = c.id_catalogue
       JOIN artisans a ON c.id_artisan = a.id_artisan
       WHERE p.id_catalogue = :id_catalogue
-        AND p.statut = 'disponible'
         AND a.statut = 'actif'
     ");
     $stmt->execute(['id_catalogue' => $id_catalogue]);
@@ -70,6 +69,7 @@ try {
             <h3 id="titre-produit"></h3>
             <p id="description-produit"></p>
             <p><strong id="prix-produit"></strong></p>
+            <p style="display: none;" id="numero-artisan"></p>
         </div>
       <div id="details-left">
         <form id="form-panier" onsubmit="ajouterAuPanier(event)">
@@ -99,6 +99,8 @@ try {
     <input type="hidden" name="panier" id="input-panier" value=''>
     <button type="submit" id="valider-commande" style="display: none;">Valider la commande</button>
     </form>
+    <a id="contact-artisan" style="margin-top: 10px; display: none;"></a>
+
   </aside>
 
   <script>
@@ -111,6 +113,7 @@ try {
         document.getElementById('description-produit').innerText = produit.description;
         document.getElementById('prix-produit').innerText = parseFloat(produit.prix).toFixed(2) + ' FCFA';
         document.getElementById('photo-produit').src = produit.photo_url;
+        document.getElementById('numero-artisan').innerText = produit.numero;
 
         const quantiteInput = document.getElementById('quantite');
         quantiteInput.value = 1;
@@ -145,6 +148,7 @@ try {
       const quantite = parseInt(document.getElementById('quantite').value);
       const titre = document.getElementById('titre-produit').innerText;
       const prix = parseFloat(document.getElementById('prix-produit').innerText.replace(' FCFA', ''));
+      const numero = document.getElementById('numero-artisan').innerText;
 
       const existant = panier.find(p => p.id === id);
       if (existant) {
@@ -156,10 +160,13 @@ try {
       afficherPanier();
     }
    function afficherPanier() {
-       const container = document.getElementById('liste-panier');
-       const totalContainer = document.getElementById('total');
-       const countBadge = document.getElementById('panier-count');
-       const validerCommandeButton = document.getElementById('valider-commande'); 
+        const container = document.getElementById('liste-panier');
+        const totalContainer = document.getElementById('total');
+        const countBadge = document.getElementById('panier-count');
+        const validerCommandeButton = document.getElementById('valider-commande'); 
+        const numeroText = document.getElementById('numero-artisan')?.textContent?.trim();
+        const contactLink = document.querySelector('#contact-artisan');
+
 
        container.innerHTML = '';
        let total = 0;
@@ -171,10 +178,10 @@ try {
            totalQuantite += item.quantite;
 
            container.innerHTML += `
-           <div class="panier-item">
-               ${item.titre} - ${item.quantite} x ${item.prix.toFixed(2)} FCFA = ${sousTotal.toFixed(2)} FCFA
-               <br><button onclick="retirerDuPanier(${index})">Supprimer</button>
-           </div>
+          <div class="panier-item">
+              ${item.titre} - ${item.quantite} x ${item.prix.toFixed(2)} FCFA = ${sousTotal.toFixed(2)} FCFA
+              <br><button onclick="retirerDuPanier(${index})">Supprimer</button>
+          </div>
            `;
        });
 
@@ -188,6 +195,20 @@ try {
        } else {
            validerCommandeButton.style.display = 'none';
        }
+       if (numeroText && contactLink) {
+        contactLink.href = 'tel:' + numeroText;
+        contactLink.textContent = 'Contacter l\'artisan';
+        contactLink.style.display = 'inline-block';
+      } else if (contactLink) {
+        contactLink.style.display = 'none';
+      }
+       else {
+        const contactLink = document.createElement('a');
+        contactLink.href = 'tel:' + numeroText;
+        contactLink.textContent = 'Contacter l\'artisan';
+        contactLink.style.display = 'inline-block';
+        document.getElementById('panier').appendChild(contactLink);
+    }
    }
 
     function retirerDuPanier(index) {

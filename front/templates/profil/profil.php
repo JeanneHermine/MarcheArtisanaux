@@ -11,6 +11,7 @@ $isClient = isset($_SESSION['client_id']);
 $id = $isClient ? $_SESSION['client_id'] : $_SESSION['artisan_id'];
 $table = $isClient ? 'clients' : 'artisans';
 $id_column = $isClient ? 'id_client' : 'id_artisan';
+if (isset($_SESSION['artisan_id'])) {
 
 $id_artisan = $_SESSION['artisan_id'];
 
@@ -18,8 +19,9 @@ $id_artisan = $_SESSION['artisan_id'];
 $stmt = $pdo->prepare("SELECT statut FROM artisans WHERE id_artisan = ?");
 $stmt->execute([$id_artisan]);
 $artisan = $stmt->fetch(PDO::FETCH_ASSOC);
+}
 
-require_once 'infos_utilisateur.php'; // gestion du formulaire et récupération $user
+require_once 'infos_utilisateur.php';
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +30,7 @@ require_once 'infos_utilisateur.php'; // gestion du formulaire et récupération
     <meta charset="UTF-8">
     <title>Profil <?= $isClient ? "Client" : "Artisan" ?></title>
     <link rel="stylesheet" href="../../assets/css/profil.css">
+    <link rel="icon" href="../../assets/img/logo.jpeg" type="image/x-icon">
 </head>
 <body>
 

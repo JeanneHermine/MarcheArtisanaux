@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8">
   <title>Modifier un catalogue</title>
   <link rel="stylesheet" href="../assets/css/ajout.css">
+  <link rel="icon" href="../assets/img/logo.jpeg" type="image/x-icon">
 </head>
 <body>
   <h2>Modifier le catalogue</h2>

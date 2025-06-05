@@ -35,6 +35,7 @@ try {
     <meta charset="UTF-8">
     <title>Messagerie</title>
     <link rel="stylesheet" href="../../front/assets/css/messagerie.css">
+    <link rel="icon" href="../../front/assets/img/logo.jpeg" type="image/x-icon">
 </head>
 <body>
     <header>

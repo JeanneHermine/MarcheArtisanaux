@@ -63,6 +63,7 @@ try {
   <meta charset="UTF-8">
   <title>Gestion des catalogues</title>
   <link rel="stylesheet" href="../assets/css/catalogue.css">
+  <link rel="icon" href="../assets/img/logo.jpeg" type="image/x-icon">
 
 </head>
 <body>

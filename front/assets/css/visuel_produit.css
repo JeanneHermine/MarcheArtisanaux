@@ -202,3 +202,8 @@ body::before {
   background-color: rgba(255, 255, 255, 0.35);
   transform: translateX(-4px);
 }
+#contact-artisan{
+  background: #e6f4f1;
+  color: #052523;
+  border: 1px solid #66fcf1;
+}

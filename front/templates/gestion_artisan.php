@@ -27,6 +27,7 @@ $artisans = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
   <meta charset="UTF-8">
   <title>Gestion des Artisans</title>
+  <link rel="icon" href="../assets/img/logo.jpeg" type="image/x-icon">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 
@@ -215,7 +216,6 @@ $artisans = $stmt->fetchAll(PDO::FETCH_ASSOC);
       color: #052523;
     }
 
-    /* 📱 Responsive pour écrans < 768px */
     @media (max-width: 768px) {
       .top-bar {
         flex-direction: column;
@@ -247,7 +247,7 @@ $artisans = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <h2>Bienvenue, <?= htmlspecialchars($_SESSION['admin_nom'] ?? 'Administrateur') ?></h2>
     <div class="admin-info">
       <div class="actions">
-        <a href="./index.php"> Accueil</a>
+        <a href="./boutique.php"> Accueil</a>
         <a href="../../back/deconnexion.php"> Déconnexion</a>
       </div>
     </div>
@@ -319,7 +319,7 @@ $artisans = $stmt->fetchAll(PDO::FETCH_ASSOC);
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
 
-        const logoUrl = 'https://res.cloudinary.com/davhr8fip/image/upload/v1749040479/7b67d7be-f11a-41b5-a98c-c16078d29e5d.jpg'; //Mev tu mettras le logo ici
+        const logoUrl = '../assets/img/logo.jpeg'; 
 
         // Charge le logo en base64
         const logoBase64 = await fetch(logoUrl)

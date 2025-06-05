@@ -7,7 +7,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $stmt = $pdo->query("
-        SELECT c.*, a.nom, a.prenom
+        SELECT c.*, a.nom, a.prenom, a.numero
         FROM catalogues c
         JOIN artisans a ON c.id_artisan = a.id_artisan
         WHERE a.statut = 'actif'
@@ -26,6 +26,8 @@ try {
     <meta charset="UTF-8">
     <title>Boutique artisanale</title>
     <link rel="stylesheet" href="../assets/css/boutique.css">
+    <link rel="icon" href="../assets/img/logo.jpeg" type="image/x-icon">
+
 </head>
 <body>
     <div class="navbar">
@@ -46,7 +48,7 @@ try {
                  <a href="./about.html">À propos</a>
              <?php endif; ?>
              <?php if (isset($_SESSION['admin_id'])): ?>
-                <a href="./gestion_artisan">Admin</a>
+                <a href="./gestion_artisan.php">Admin</a>
             <?php endif; ?>
         </div>
     </div>
@@ -63,7 +65,7 @@ try {
         <div class="hero-text">
             <h1>Bienvenue dans l'univers du fait-main</h1>
             <p>Découvrez des créations artisanales uniques fabriquées avec passion.</p>
-            <a href="#catalogues" class="hero-btn">Explorer les catalogues</a>
+            <a href="#nos_catalogues" class="hero-btn">Explorer les catalogues</a>
         </div>
         <div class="hero-image-slider">
             <img class="slider-image active" src="https://images.pexels.com/photos/5450085/pexels-photo-5450085.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Artisan créant un objet">
@@ -72,9 +74,14 @@ try {
         </div>
 
     </section>
+    <div id="nos_catalogues">
 
+        <hr>
+        <h1>Nos catalogues</h1>
+        <hr>
 
-    <div class="catalogue-content">
+    </div>
+    <div class="catalogue-content" id="catalogues">
            <div class="catalogue-grid">
                <?php if (empty($catalogues)): ?>
                    <p>Aucun catalogue disponible pour le moment.</p>
@@ -86,7 +93,9 @@ try {
                            <h4><?= htmlspecialchars($cat['titre']) ?></h4>
                        </a>
                        <p>Par <strong><?= htmlspecialchars($cat['prenom'] . ' ' . $cat['nom']) ?></strong></p>
-                       <a href="./voir_produits.php?id_catalogue=<?= $cat['id_catalogue'] ?>" class="btn">Voir les produits</a>
+                        <a href="tel:<?= htmlspecialchars($cat['numero']) ?>" class="contact-btn">📞 Contacter l'artisan</a>
+                        <p style="text-align:center; color: #aaa;">— ou —</p>
+                        <a href="./voir_produits.php?id_catalogue=<?= $cat['id_catalogue'] ?>" class="btn">Voir les produits</a>
                    </div>
                <?php endforeach; ?>
            </div>
@@ -198,6 +207,7 @@ try {
                 catalogue.style.display = texte.includes(valeur) ? 'block' : 'none';
             });
         });
+        
 
 
     </script>
