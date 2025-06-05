@@ -1,92 +1,214 @@
-#bg-video {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -1;
-}
+:root {
+      --benin-green: #008751;
+      --benin-yellow: #fcd116;
+      --benin-red: #e8112d;
+      --benin-brown: #8c5e2a;
+      --benin-indigo: #2a5a8c;
+    }
 
-.overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 0;
-}
+    /* Reset et styles de base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.content {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  
-  color: white;
-  font-family: 'Courier New', Courier, monospace;
-  text-align: center;
-  width: 100%;
-  max-width: 600px;
-  padding: 0 20px;
-}
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, 
+        var(--benin-brown) 0%, 
+        var(--benin-red) 25%, 
+        var(--benin-yellow) 50%, 
+        var(--benin-green) 75%, 
+        var(--benin-indigo) 100%);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
 
-/* Nom "machine à écrire" sans curseur */
-.typewriter {
-  font-size: 3rem;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 0;
-  animation: typing 3s steps(7, end) forwards;
-  margin: 0 0 20px;
-}
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1200px;
+      width: 90%;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      min-height: 80vh;
+    }
 
-/* Animation typing */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 7ch } /* "BEN'ART" = 7 caractères */
-}
+    /* Partie gauche - Texte */
+    .left-column {
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-/* Slogan en fondu après 8s (3s typing + 5s pause) */
-.slogan {
-  opacity: 0;
-  font-size: 1.5rem;
-  animation: fadeIn 1s ease forwards;
-  animation-delay: 4s;
-  margin: 0 0 20px;
-}
+    /* Animation pour le titre "BEN'ART" */
+    .typewriter {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5rem;
+      color: white;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      border-right: 0.15em solid var(--benin-yellow);
+      white-space: nowrap;
+      margin: 0;
+      letter-spacing: 0.15em;
+      animation: 
+        typing 3.5s steps(40, end) forwards,
+        blink-caret 0.75s step-end infinite;
+      transform: translateX(-100%);
+      opacity: 0;
+      animation-delay: 0.5s;
+    }
 
-/* Bouton en fondu après 13s */
-.button {
-  opacity: 0;
-  font-size: 1.5rem;
-  animation: fadeIn 1s ease forwards;
-  animation-delay: 5s;
-}
+    /* Animation d'apparition pour le slogan */
+    .slogan {
+      font-size: 1.8rem;
+      color: white;
+      margin-top: 1rem;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: slideIn 1s forwards 3s;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
 
-/* Animation fade-in */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    /* Styles pour le bouton "Démarrer" */
+    .button {
+      background: linear-gradient(to right, var(--benin-yellow), var(--benin-red));
+      border: none;
+      padding: 1.2rem 3rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: slideIn 1s forwards 3.5s;
+      align-self: flex-start;
+      text-align: center;
+      max-width: fit-content;
+    }
 
-/* Style bouton */
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #f90;
-  color: #fff;
-  border-radius: 5px;
-  text-decoration: none;
-  cursor: pointer;
-}
+    .button:hover {
+      transform: translateY(-5px) translateX(0) !important;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Partie droite - Logo */
+    .right-column {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .logo-container {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transform: scale(0.8);
+      animation: fadeInScale 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 1.4s;
+      box-shadow: 
+        0 0 0 15px rgba(252, 209, 22, 0.2),
+        0 0 0 30px rgba(232, 17, 45, 0.1),
+        0 0 0 45px rgba(0, 135, 81, 0.05);
+    }
+
+    .logo {
+      max-width: 70%;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    }
+
+    /* Définition des animations */
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes typing {
+      0% {
+        width: 0;
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      50% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      100% {
+        width: 100%;
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: var(--benin-yellow); }
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInScale {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Styles responsives */
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .right-column {
+        padding-bottom: 4rem;
+      }
+      .left-column {
+        padding: 2rem;
+        text-align: center;
+      }
+      .button {
+        align-self: center;
+        margin: 0 auto;
+      }
+      .typewriter {
+        font-size: 3.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .typewriter {
+        font-size: 2.5rem;
+      }
+      .slogan {
+        font-size: 1.3rem;
+      }
+    }
