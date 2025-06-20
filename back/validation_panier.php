@@ -1,19 +1,25 @@
 <?php
 session_start();
+
+
+// 🔐 Vérifie si le client est bien défini et si le panier n'est pas vide
+if (!isset($_SESSION['client_id']) || empty($_POST['panier'])) {
+    $_SESSION['message'] = "Vous devez être connecté et avoir un panier valide.";
+    header("Location: ../front/templates/boutique.php");
+    exit();
+}
+
 require_once './config.php';
 require_once 'vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-if (!isset($_SESSION['client_id']) || empty($_POST['panier'])) {
-    header("Location: ../front/templates/boutique.php");
-    exit();
-}
-
+// 📦 Récupération des données du panier
 $id_client = $_SESSION['client_id'];
-$panier = $_POST['panier']; // JSON contenant les produits, quantités, etc.
-$panier = json_decode($panier, true);
+$panier = json_decode($_POST['panier'], true);
+
+// ➕ Ici tu peux continuer avec l'enregistrement en base ou l'envoi de mail
 
 try {
     $pdo = new PDO($dsn, $user, $pass);

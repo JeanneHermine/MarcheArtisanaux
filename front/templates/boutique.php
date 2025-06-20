@@ -27,7 +27,7 @@ try {
     <title>Boutique artisanale</title>
     <link rel="stylesheet" href="../assets/css/boutique.css">
     <link rel="icon" href="../assets/img/logo.jpeg" type="image/x-icon">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
     <div class="navbar">
@@ -54,13 +54,7 @@ try {
     </div>
 
     
-    <!-- <div class="catalogue-section">
-        <div class="video-background">
-          <video autoplay muted loop playsinline>
-            <source src="../../front/assets/img/14.mp4" type="video/mp4">
-          </video>
-        <div class="video-overlay"></div>
-    </div> -->
+    
     <section class="hero">
         <div class="hero-text">
             <h1>Bienvenue dans l'univers du fait-main</h1>
@@ -101,6 +95,9 @@ try {
            </div>
         </div>
     </div>
+<hr style="border: none; height: 3px; width: 300px; background: linear-gradient(to right,rgb(83, 137, 255),rgb(29, 126, 89)); margin: 40px auto; border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);">
+
+
 
 <div class="site-info">
   <div class="info-bloc fade-init" data-aos="fade-right">
@@ -115,14 +112,14 @@ try {
     <img src="https://images.pexels.com/photos/11588124/pexels-photo-11588124.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Marché artisanal">
     <div class="info-text">
       <h2>Pourquoi acheter chez nous ?</h2>
-      <p>Chaque article est unique, conçu avec passion et savoir-faire...</p>
+      <p>Chaque article est conçu avec passion et savoir-faire...</p>
     </div>
   </div>
 
   <div class="info-bloc fade-init" data-aos="fade-up">
     <img src="https://images.pexels.com/photos/13740587/pexels-photo-13740587.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Outils artisanaux">
     <div class="info-text">
-      <h2>Des créations uniques</h2>
+      <h2>Des créations originales</h2>
       <p>Du bois, du cuir, du tissu, du métal... chaque matière est transformée...</p>
     </div>
   </div>
@@ -140,7 +137,7 @@ try {
     </div>
     <div class="testimonial-card">
       <p>“Simple, pratique et authentique. Je recommande à tous les amoureux de l'artisanat.”</p>
-      <strong>— Paulin G., client régulier</strong>
+      <strong>— Paulin G., client</strong>
     </div>
   </div>
 </section>
@@ -156,16 +153,26 @@ try {
             <ul>
                 <li><a href="#">Accueil</a></li>
                 <li><a href="./about.html">À propos</a></li>
-                <li><a href="./connexion.html">Connexion</a></li>
+                <li><a href="./connexion.php">Connexion</a></li>
                 <li><a href="./inscription.html">Inscription</a></li>
             </ul>
         </div>
         <div class="footer-column">
-            <h4>Suivez-nous</h4>
+            <h4>Trouvez-nous sur</h4>
             <div class="socials">
-                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
-                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Instagram"></a>
-                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="TikTok"></a>
+             
+  <a href="https://www.instagram.com/ton_compte_instagram" target="_blank" style="margin: 0 15px; color: #E4405F;">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://www.facebook.com/ton_compte_facebook" target="_blank" style="margin: 0 15px; color: #1877F2;">
+    <i class="fab fa-facebook"></i>
+  </a>
+  <a href="https://wa.me/44509797" target="_blank" style="margin: 0 15px; color: #25D366;">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+
+
             </div>
         </div>
     </div>

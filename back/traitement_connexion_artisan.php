@@ -2,6 +2,7 @@
 session_start();
 require_once './config.php';
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $identifiant = trim($_POST['identifiant']);
     $mot_de_passe = $_POST['mot_de_passe'];
